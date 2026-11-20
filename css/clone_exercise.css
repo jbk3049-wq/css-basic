@@ -1,16 +1,27 @@
-/* CSS 초기화 */
+/* ========================================
+   CSS 초기화
+   브라우저마다 다르게 적용되는 기본 스타일을 초기화
+======================================== */
+
+/* 모든 요소의 기본 바깥 여백과 안쪽 여백 제거 */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0; /* 요소 바깥 여백 제거 */
+  padding: 0; /* 요소 안쪽 여백 제거 */
+  box-sizing: border-box; /* padding과 border를 포함해서 요소 크기 계산 */
 }
+
+/* 모든 요소의 가상 요소에도 동일한 크기 계산 방식 적용 */
 *::before,
 *::after {
-  box-sizing: border-box;
+  box-sizing: border-box; /* 가상 요소도 padding과 border를 포함해서 크기 계산 */
 }
+
+/* HTML 문서 전체 설정 */
 html {
-  overflow-x: hidden;
+  overflow-x: hidden; /* 가로 방향으로 화면을 벗어나는 콘텐츠 숨김 */
 }
+
+/* 웹페이지 전체 기본 글꼴 및 텍스트 설정 */
 body {
   font-family:
     "Pretendard GOV Variable",
@@ -27,148 +38,251 @@ body {
     "Apple Color Emoji",
     "Segoe UI Emoji",
     "Segoe UI Symbol",
-    sans-serif;
-  font-size: 16px;
-  color: #29292c;
-  line-height: 1.3;
-  letter-spacing: -0.02em;
-  background-color: #fff;
+    sans-serif; /* 앞에서부터 사용 가능한 글꼴 적용 */
+  font-size: 16px; /* 기본 글자 크기 */
+  color: #29292c; /* 기본 글자 색상 */
+  line-height: 1.3; /* 글자 줄 사이의 간격 */
+  letter-spacing: -0.02em; /* 글자 사이 간격을 조금 좁게 설정 */
+  background-color: #fff; /* 페이지 전체 배경색을 흰색으로 설정 */
 }
+
+/* 목록 요소의 기본 글머리 기호 제거 */
 ul,
 li {
-  list-style: none;
+  list-style: none; /* 목록 앞의 점이나 번호 제거 */
 }
 
+/* 링크 기본 스타일 설정 */
 a {
-  color: inherit;
-  text-decoration: none;
+  color: inherit; /* 부모 요소의 글자 색상 상속 */
+  text-decoration: none; /* 링크 밑줄 제거 */
 }
 
+/* 이미지 기본 스타일 설정 */
 img {
-  vertical-align: middle;
-  border: 0;
+  vertical-align: middle; /* 이미지의 세로 정렬을 가운데로 설정 */
+  border: 0; /* 이미지 테두리 제거 */
 }
+
+/* 버튼 기본 스타일 초기화 */
 button {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: none;
-  font: inherit; /* 폰트 종류·크기·굵기·줄간격 상속 */
-  color: inherit; /* 글자색 상속 */
-  line-height: inherit;
-  text-align: center;
-  cursor: pointer;
-  appearance: none; /* 브라우저/OS 기본 모양 제거 */
-  -webkit-appearance: none;
+  margin: 0; /* 버튼 바깥 여백 제거 */
+  padding: 0; /* 버튼 안쪽 여백 제거 */
+  border: 0; /* 버튼 테두리 제거 */
+  background: none; /* 버튼 기본 배경색 제거 */
+  font: inherit; /* 부모 요소의 폰트 종류, 크기, 굵기 등을 상속 */
+  color: inherit; /* 부모 요소의 글자 색상 상속 */
+  line-height: inherit; /* 부모 요소의 줄 간격 상속 */
+  text-align: center; /* 버튼 내부 텍스트 가운데 정렬 */
+  cursor: pointer; /* 마우스를 올리면 클릭 가능한 커서 표시 */
+  appearance: none; /* 브라우저와 운영체제의 기본 버튼 디자인 제거 */
+  -webkit-appearance: none; /* 웹킷 기반 브라우저의 기본 버튼 디자인 제거 */
 }
+
+/* 키보드로 버튼에 접근했을 때 포커스 표시 */
 button:focus-visible {
-  outline: 2px solid #000;
-  outline-offset: 2px;
+  outline: 2px solid #000; /* 검은색 외곽선 표시 */
+  outline-offset: 2px; /* 버튼과 외곽선 사이 간격 */
 }
 
-/* styling */
+/* ========================================
+   공통 스타일
+======================================== */
+
+/* 전체 페이지를 감싸는 최상위 영역 */
 .wrap {
-  width: 100%;
+  width: 100%; /* 화면 너비 전체 사용 */
 }
+
+/* ========================================
+   HEADER 스타일 시작
+======================================== */
+
+/* 헤더 전체 영역 */
 .header {
-  position: relative;
-  width: 100%;
-  height: 90px;
-  background-color: aquamarine;
+  position: relative; /* 내부 요소의 absolute 위치 기준점 */
+  width: 100%; /* 화면 너비 전체 사용 */
+  height: 90px; /* 헤더 높이 90px */
+  background-color: aquamarine; /* 헤더 영역 확인용 배경색 */
 }
+
+/* 헤더 내부 콘텐츠 영역 */
 .header .inner {
-  /* position: relative; */
-  width: 100%;
-  max-width: 1280px;
-  height: 100%;
-  background-color: thistle;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  /* position: relative; */ /* 필요할 때 내부 요소의 absolute 위치 기준점으로 사용 */
+  width: 100%; /* 부모 영역의 너비 전체 사용 */
+  max-width: 1280px; /* 최대 너비를 1280px로 제한 */
+  height: 100%; /* 부모 요소인 header의 높이 전체 사용 */
+  background-color: thistle; /* 내부 영역 확인용 배경색 */
+  margin: 0 auto; /* 위아래 여백은 0, 좌우는 자동으로 설정하여 가운데 정렬 */
+  display: flex; /* 자식 요소들을 가로 방향으로 배치 */
+  align-items: center; /* 자식 요소들을 세로 방향 가운데 정렬 */
+  justify-content: space-between; /* 자식 요소들을 양 끝으로 배치하고 사이 공간 균등 분배 */
 }
+
+/* 로고 영역 */
 .logo {
-  position: relative;
+  position: relative; /* 내부 요소의 absolute 위치 기준점 */
 }
+
+/* 전체 내비게이션 영역 */
 .nav {
-  /* position: relative; */
-  height: 100%;
+  /* position: relative; */ /* 필요할 때 내부 요소의 absolute 위치 기준점으로 사용 */
+  height: 100%; /* 부모 요소의 높이 전체 사용 */
 }
+
+/* 1차 메뉴 전체를 감싸는 영역 */
 .depth1-wrap {
-  /* position: relative; */
-  height: 100%;
-  display: flex;
-  gap: 32px;
+  /* position: relative; */ /* 필요할 때 하위 메뉴의 absolute 위치 기준점으로 사용 */
+  height: 100%; /* 부모 요소의 높이 전체 사용 */
+  display: flex; /* 1차 메뉴들을 가로 방향으로 배치 */
+  gap: 32px; /* 각 1차 메뉴 사이 간격을 32px로 설정 */
 }
+
+/* 1차 메뉴 - 여행 */
 .depth1-travel {
-  /* position: relative; */
+  /* position: relative; */ /* 하위 메뉴의 위치 기준점으로 사용 가능 */
 }
+
+/* 1차 메뉴 공통 버튼 */
 .depth1-btn {
+  /* 여행 및 추천 메뉴에 적용되는 버튼 영역 */
 }
+
+/* 1차 메뉴 - 추천 */
 .depth1-rec {
-  /* position: relative; */
+  /* position: relative; */ /* 하위 메뉴의 위치 기준점으로 사용 가능 */
 }
+
+/* 1차 메뉴 - 테마 */
 .depth1-theme {
-  /* position: relative; */
+  /* position: relative; */ /* 내부 요소의 위치 기준점으로 사용 가능 */
 }
+
+/* 1차 메뉴 - 지역 */
 .depth1-area {
-  /* position: relative; */
+  /* position: relative; */ /* 내부 요소의 위치 기준점으로 사용 가능 */
 }
+
+/* 1차 메뉴 - 디지털관광주민증 */
 .add-type {
-  /* position: relative; */
+  /* position: relative; */ /* 내부 요소의 위치 기준점으로 사용 가능 */
 }
 
+/* 1차 메뉴 안에 있는 li의 a 요소 선택 */
 .depth1-wrap > li > a {
-  display: flex;
-  height: 100%;
-  align-items: center;
-  gap: 10px;
-  padding: 0 10px;
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  line-height: 1;
+  display: flex; /* 링크 안의 텍스트와 아이콘을 가로 방향으로 배치 */
+  height: 100%; /* 부모 li의 높이 전체 사용 */
+  align-items: center; /* 텍스트와 아이콘을 세로 방향 가운데 정렬 */
+  gap: 10px; /* 텍스트와 아이콘 사이 간격 */
+  padding: 0 10px; /* 위아래 여백은 0, 좌우 여백은 10px */
+  font-size: 20px; /* 메뉴 글자 크기 20px */
+  font-weight: 600; /* 글자 굵기를 조금 두껍게 설정 */
+  letter-spacing: -0.01em; /* 글자 사이 간격을 조금 좁게 설정 */
+  line-height: 1; /* 줄 간격을 글자 크기에 맞게 설정 */
 }
+
+/* 2차 메뉴 전체 영역 */
 .depth2-wrap {
-  display: none;
+  /* display: none; */ /* 2차 메뉴를 화면에서 숨길 때 사용 */
+  position: absolute; /* 기준이 되는 부모 요소를 기준으로 위치 지정 */
+  top: 100%; /* 부모 요소의 바로 아래에 배치 */
+  left: 0; /* 부모 요소의 왼쪽을 기준으로 정렬 */
+  width: 100%; /* 부모 요소의 너비 전체 사용 */
+  background-color: #b4adad; /* 2차 메뉴 영역 배경색 */
+  z-index: 1; /* 다른 요소보다 앞쪽에 표시 */
 }
 
+/* 헤더 우측 유틸리티 전체 영역 */
 .header-util {
-  position: relative;
-  display: flex;
-  height: 38px;
-  align-items: center;
-  gap: 12px;
-}
-.util-sub {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  height: 100%;
-}
-.language-wrap {
-  position: relative;
-  background-color: blueviolet;
-  height: 100%;
-}
-.language-wrap > button {
-  display: flex;
-  align-items: center;
-  height: 100%;
-}
-.language-layer {
-  position: absolute;
-  left: 0;
-  top: 38px;
-  background-color: #fff;
+  position: relative; /* 내부 요소의 absolute 위치 기준점 */
+  display: flex; /* 내부 요소들을 가로 방향으로 배치 */
+  height: 38px; /* 영역 높이 38px */
+  align-items: center; /* 내부 요소들을 세로 방향 가운데 정렬 */
+  gap: 12px; /* 내부 요소 사이 간격 */
 }
 
+/* 헤더 우측의 보조 메뉴 영역 */
+.util-sub {
+  position: relative; /* 내부 요소의 absolute 위치 기준점 */
+  display: flex; /* 내부 요소들을 가로 방향으로 배치 */
+  align-items: center; /* 내부 요소들을 세로 방향 가운데 정렬 */
+  gap: 4px; /* 내부 요소 사이 간격 */
+  height: 100%; /* 부모 요소의 높이 전체 사용 */
+}
+
+/* 언어 선택 전체 영역 */
+.language-wrap {
+  position: relative; /* 언어 선택 목록의 위치 기준점 */
+  background-color: blueviolet; /* 언어 선택 영역 확인용 배경색 */
+  height: 100%; /* 부모 요소의 높이 전체 사용 */
+}
+
+/* 언어 선택 영역 내부의 버튼 */
+.language-wrap > button {
+  display: flex; /* 버튼 내부의 아이콘과 텍스트를 가로 방향으로 배치 */
+  align-items: center; /* 내부 요소들을 세로 방향 가운데 정렬 */
+  height: 100%; /* 부모 요소의 높이 전체 사용 */
+}
+
+/* 언어 선택 버튼을 눌렀을 때 나타나는 목록 */
+.language-layer {
+  position: absolute; /* 부모 요소를 기준으로 위치 지정 */
+  left: 0; /* 부모 요소의 왼쪽에 맞춰 정렬 */
+  top: 38px; /* 부모 요소의 위쪽에서 38px 아래에 배치 */
+  background-color: #fff; /* 목록 배경색을 흰색으로 설정 */
+}
+
+/* ========================================
+   HEADER 스타일 끝
+======================================== */
+
+/* ========================================
+   MAIN 스타일 시작
+======================================== */
+
+/* 메인 콘텐츠 전체 영역 */
 .main {
-  width: 100%;
-  background-color: wheat;
+  width: 100%; /* 화면 너비 전체 사용 */
+  background-color: wheat; /* 메인 영역 확인용 배경색 */
 }
+
+/* 메인 히어로 스와이퍼 안의 슬라이드 */
+.sw-hero .swiper-slide {
+  position: relative; /* 슬라이드 내부 이미지나 요소의 위치 기준점 */
+  width: 940px; /* 슬라이드 너비 940px */
+  height: 626px; /* 슬라이드 높이 626px */
+  border-radius: 12px; /* 모서리를 12px만큼 둥글게 설정 */
+  overflow: hidden; /* 영역을 벗어나는 이미지나 콘텐츠 숨김 */
+}
+
+/* 히어로 이미지 전체 영역 */
+.hero-img {
+  display: block; /* 이미지 주변에 생길 수 있는 불필요한 공백 제거 */
+  width: 100%; /* 부모 요소의 너비 전체 사용 */
+  height: 100%; /* 부모 요소의 높이 전체 사용 */
+}
+
+/* 히어로 이미지 영역 안의 실제 img 요소 */
+.hero-img img {
+  width: 100%; /* 부모 요소의 너비 전체 사용 */
+  height: 100%; /* 부모 요소의 높이 전체 사용 */
+  object-fit: cover; /* 이미지 비율을 유지하면서 영역을 빈틈없이 채움 */
+}
+
+/* ========================================
+   MAIN 스타일 끝
+======================================== */
+
+/* ========================================
+   FOOTER 스타일 시작
+======================================== */
+
+/* 푸터 전체 영역 */
 .footer {
-  width: 100%;
-  background-color: violet;
+  width: 100%; /* 화면 너비 전체 사용 */
+  background-color: violet; /* 푸터 영역 확인용 배경색 */
 }
+
+/* ========================================
+   FOOTER 스타일 끝
+======================================== */
