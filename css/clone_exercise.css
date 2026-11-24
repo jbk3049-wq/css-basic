@@ -5,240 +5,206 @@
 
 /* 모든 요소의 기본 바깥 여백과 안쪽 여백 제거 */
 * {
-  margin: 0; /* 요소 바깥 여백 제거 (Figma: Margin 0) */
-  padding: 0; /* 요소 안쪽 여백 제거 (Figma: Padding 0) */
-  box-sizing: border-box; /* padding과 border를 포함해서 요소 크기 계산 (Figma: 프레임의 W/H 크기와 내부 여백을 구분하는 개념과 관련) */
+  margin: 0; /* 바깥 여백 제거 (피그마: Margin 0) */
+  padding: 0; /* 안쪽 여백 제거 (피그마: Padding 0) */
+  box-sizing: border-box; /* 테두리와 안쪽 여백을 포함하여 요소 크기 계산 (피그마: 프레임 크기와 유사한 개념) */
 }
 
 /* 모든 요소의 가상 요소에도 동일한 크기 계산 방식 적용 */
 *::before,
 *::after {
-  box-sizing: border-box; /* 가상 요소도 padding과 border를 포함해서 크기 계산 (Figma: 직접 대응되는 개념 없음) */
+  box-sizing: border-box; /* 가상 요소도 테두리와 안쪽 여백을 포함하여 크기 계산 */
 }
 
-/* HTML 문서 전체 설정 */
 html {
-  overflow-x: hidden; /* 가로 방향으로 화면을 벗어나는 콘텐츠 숨김 (Figma: Clip content와 유사한 개념) */
+  overflow-x: hidden; /* 화면의 가로 방향으로 넘치는 콘텐츠 숨김 (피그마: 직접 대응하는 기능 없음) */
 }
 
-/* 웹페이지 전체 기본 글꼴 및 텍스트 설정 */
 body {
   font-family: var(
     --font-base
-  ); /* 앞에서부터 사용 가능한 글꼴 적용 (Figma: Font family) */
-
-  font-size: var(--fs-base); /* 기본 글자 크기 (Figma: Font size) */
-  font-weight: var(
-    --fw-regular
-  ); /* 기본 글자 굵기를 보통 두께로 설정 (Figma: Font weight / Regular) */
-  color: var(--color-text); /* 기본 글자 색상 (Figma: Text color / Fill) */
-  line-height: var(--lh-base); /* 글자 줄 사이의 간격 (Figma: Line height) */
+  ); /* 기본 글꼴 지정 (피그마: Typography - Font) */
+  font-size: var(--fs-base); /* 기본 글자 크기 (피그마: Font size) */
+  font-weight: var(--fw-regular); /* 기본 글자 굵기 (피그마: Weight) */
+  color: var(--color-text); /* 기본 글자 색상 (피그마: Text color / Fill) */
+  line-height: var(--lh-base); /* 글줄 사이의 간격 (피그마: Line height) */
   letter-spacing: var(
     --ls-base
-  ); /* 글자 사이 간격을 조금 좁게 설정 (Figma: Letter spacing) */
-  background-color: var(
-    --color-white
-  ); /* 페이지 전체 배경색을 흰색으로 설정 (Figma: Frame Fill) */
+  ); /* 글자 사이의 간격 (피그마: Letter spacing) */
+  background-color: var(--color-white); /* 페이지 전체 배경색 (피그마: Fill) */
 }
 
-/* 목록 요소의 기본 글머리 기호 제거 */
+/* 목록의 기본 글머리 기호 제거 */
 ul,
 li {
-  list-style: none; /* 목록 앞의 점이나 번호 제거 (Figma: 직접 대응되는 개념 없음) */
+  list-style: none; /* 목록 앞의 점이나 숫자 제거 (피그마: 직접 대응하는 기능 없음) */
 }
 
-/* 링크 기본 스타일 설정 */
+/* 링크 기본 스타일 초기화 */
 a {
-  color: inherit; /* 부모 요소의 글자 색상 상속 (Figma: 부모 스타일을 활용하는 개념과 유사) */
-  text-decoration: none; /* 링크 밑줄 제거 (Figma: Text decoration / None) */
+  color: inherit; /* 부모 요소의 글자색 상속 */
+  text-decoration: none; /* 링크 밑줄 제거 (피그마: Text decoration - None) */
 }
 
-/* 이미지 기본 스타일 설정 */
+/* 이미지 기본 스타일 초기화 */
 img {
-  vertical-align: middle; /* 이미지의 세로 정렬을 가운데로 설정 (Figma: 직접 대응되는 개념 없음) */
-  border: 0; /* 이미지 테두리 제거 (Figma: Stroke 없음) */
+  vertical-align: middle; /* 이미지와 주변 글자의 세로 정렬 기준 조정 (피그마: 직접 대응하는 기능 없음) */
+  border: 0; /* 이미지 테두리 제거 (피그마: Stroke 없음) */
 }
 
 /* 버튼 기본 스타일 초기화 */
 button {
-  margin: 0; /* 버튼 바깥 여백 제거 (Figma: Margin 0) */
-  padding: 0; /* 버튼 안쪽 여백 제거 (Figma: Padding 0) */
-  border: 0; /* 버튼 테두리 제거 (Figma: Stroke 없음) */
-  background: none; /* 버튼 기본 배경색 제거 (Figma: Fill 없음) */
-  font: inherit; /* 부모 요소의 폰트 종류, 크기, 굵기 등을 상속 (Figma: Text style 공유와 유사) */
-  color: inherit; /* 부모 요소의 글자 색상 상속 (Figma: 부모 텍스트 색상 활용과 유사) */
-  line-height: inherit; /* 부모 요소의 줄 간격 상속 (Figma: Line height) */
-  text-align: center; /* 버튼 내부 텍스트 가운데 정렬 (Figma: Text align / Center) */
-  cursor: pointer; /* 마우스를 올리면 클릭 가능한 커서 표시 (Figma: 직접 대응되는 개념 없음) */
-  appearance: none; /* 브라우저와 운영체제의 기본 버튼 디자인 제거 (Figma: 기본 디자인을 직접 지정하는 개념과 유사) */
-  -webkit-appearance: none; /* 웹킷 기반 브라우저의 기본 버튼 디자인 제거 (Figma: 직접 대응되는 개념 없음) */
+  margin: 0; /* 버튼 바깥 여백 제거 (피그마: Margin 0) */
+  padding: 0; /* 버튼 안쪽 여백 제거 (피그마: Padding 0) */
+  border: 0; /* 버튼 기본 테두리 제거 (피그마: Stroke 없음) */
+  background: none; /* 버튼 기본 배경 제거 (피그마: Fill 없음) */
+  font: inherit; /* 글꼴 종류, 크기, 굵기, 줄간격을 부모 요소에서 상속 */
+  color: inherit; /* 부모 요소의 글자색 상속 */
+  line-height: inherit; /* 부모 요소의 줄간격 상속 */
+  text-align: center; /* 버튼 안의 글자를 가운데 정렬 (피그마: Text alignment - Center) */
+  cursor: pointer; /* 마우스를 올리면 클릭 가능한 손 모양으로 변경 (피그마: 직접 대응하는 기능 없음) */
+  appearance: none; /* 브라우저와 운영체제의 기본 버튼 모양 제거 */
+  -webkit-appearance: none; /* 일부 브라우저에서도 기본 버튼 모양 제거 */
 }
 
-/* 키보드로 버튼에 접근했을 때 포커스 표시 */
+/* 키보드로 버튼에 접근했을 때 표시되는 포커스 테두리 */
 button:focus-visible {
-  outline: var(--stroke-icon-sm) solid var(--color-focus); /* 검은색 외곽선 표시 (Figma: Stroke와 유사) */
-  outline-offset: var(
-    --radius-sm
-  ); /* 버튼과 외곽선 사이 간격 (Figma: 직접 대응되는 개념 없음) */
+  outline: 2px solid #000; /* 키보드 포커스 표시 테두리 (피그마: Stroke와 시각적으로 유사) */
+  outline-offset: 2px; /* 테두리와 버튼 사이의 간격 (피그마: 직접 대응하는 기능 없음) */
 }
 
 /* ========================================
    공통 스타일
 ======================================== */
 
-/* 전체 페이지를 감싸는 최상위 영역 */
 .wrap {
-  width: 100%; /* 화면 너비 전체 사용 (Figma: Width / Fill container와 유사) */
+  width: 100%; /* 부모 영역의 가로 너비 전체 사용 (피그마: Fill container) */
 }
 
 /* ========================================
    HEADER 스타일 시작
 ======================================== */
 
-/* 헤더 전체 영역 */
 .header {
-  position: relative; /* 내부 요소의 absolute 위치 기준점 (Figma: Absolute position의 기준 프레임 역할과 유사하지만 동작 방식은 다름) */
-  width: 100%; /* 화면 너비 전체 사용 (Figma: Width / Fill container) */
-  height: var(--header-height); /* 헤더 높이 90px (Figma: Height) */
-  background-color: aquamarine; /* 헤더 영역 확인용 배경색 (Figma: Frame Fill) */
+  position: relative; /* 자식 요소의 absolute 위치 기준점 설정 (피그마: 직접 대응하는 기능 없음) */
+  width: 100%; /* 화면 가로 너비 전체 사용 (피그마: Fill container) */
+  height: 90px; /* 헤더 높이 지정 (피그마: Height) */
+  background-color: aquamarine; /* 헤더 배경색 (피그마: Fill) */
 }
 
-/* 헤더 내부 콘텐츠 영역 */
 .header .inner {
-  /* position: relative; */ /* 필요할 때 내부 요소의 absolute 위치 기준점으로 사용 */
-  width: 100%; /* 부모 영역의 너비 전체 사용 (Figma: Width / Fill container) */
-  max-width: var(
-    --layout-max
-  ); /* 최대 너비를 1280px로 제한 (Figma: Max width와 유사) */
-  height: 100%; /* 부모 요소인 header의 높이 전체 사용 (Figma: Height / Fill container와 유사) */
-  background-color: thistle; /* 내부 영역 확인용 배경색 (Figma: Frame Fill) */
-  margin: 0 auto; /* 위아래 여백은 0, 좌우는 자동으로 설정하여 가운데 정렬 (Figma: 프레임 수평 중앙 정렬과 유사) */
-  display: flex; /* 자식 요소들을 가로 방향으로 배치 (Figma: Auto layout / Horizontal) */
-  align-items: center; /* 자식 요소들을 세로 방향 가운데 정렬 (Figma: Auto layout / Align items center) */
-  justify-content: space-between; /* 자식 요소들을 양 끝으로 배치하고 사이 공간 균등 분배 (Figma: Auto layout / Space between) */
+  /* position: relative; */ /* 자식 요소의 absolute 위치 기준점 설정 */
+  width: 100%; /* 부모 영역의 가로 너비 전체 사용 (피그마: Fill container) */
+  max-width: 1280px; /* 콘텐츠가 커질 수 있는 최대 너비 제한 (피그마: Max width와 유사) */
+  height: 100%; /* 부모 요소의 높이만큼 사용 (피그마: Fill container) */
+  background-color: thistle; /* 내부 영역 배경색 (피그마: Fill) */
+  margin: 0 auto; /* 위아래 여백 없음, 좌우 자동 여백으로 가운데 배치 (피그마: 수평 중앙 정렬과 유사) */
+  display: flex; /* 자식 요소를 가로 방향으로 배치할 수 있는 Flex 레이아웃 설정 (피그마: Auto layout - Horizontal) */
+  align-items: center; /* 자식 요소를 세로 방향 가운데 정렬 (피그마: Auto layout - Align center) */
+  justify-content: space-between; /* 자식 요소 사이에 남은 공간을 균등하게 배분 (피그마: Auto layout - Space between) */
 }
 
-/* 로고 영역 */
 .logo {
-  position: relative; /* 내부 요소의 absolute 위치 기준점 (Figma: Absolute position의 기준 프레임 역할과 유사하지만 동작 방식은 다름) */
+  position: relative; /* 자식 요소의 absolute 위치 기준점 설정 */
 }
 
-/* 전체 내비게이션 영역 */
 .nav {
-  /* position: relative; */ /* 필요할 때 내부 요소의 absolute 위치 기준점으로 사용 */
-  height: 100%; /* 부모 요소의 높이 전체 사용 (Figma: Height / Fill container와 유사) */
+  /* position: relative; */
+  height: 100%; /* 부모 높이 전체 사용 (피그마: Fill container) */
 }
 
-/* 1차 메뉴 전체를 감싸는 영역 */
 .depth1-wrap {
-  /* position: relative; */ /* 필요할 때 하위 메뉴의 absolute 위치 기준점으로 사용 */
-  height: 100%; /* 부모 요소의 높이 전체 사용 (Figma: Height / Fill container와 유사) */
-  display: flex; /* 1차 메뉴들을 가로 방향으로 배치 (Figma: Auto layout / Horizontal) */
-  gap: var(
-    --space-8
-  ); /* 각 1차 메뉴 사이 간격을 32px로 설정 (Figma: Auto layout / Gap) */
+  /* position: relative; */
+  height: 100%; /* 부모 높이 전체 사용 (피그마: Fill container) */
+  display: flex; /* 1차 메뉴를 가로 방향으로 배치 (피그마: Auto layout - Horizontal) */
+  gap: 32px; /* 메뉴 항목 사이 간격 (피그마: Auto layout - Gap) */
 }
 
-/* 1차 메뉴 - 여행 */
 .depth1-travel {
-  /* position: relative; */ /* 하위 메뉴의 위치 기준점으로 사용 가능 */
+  /* position: relative; */
 }
 
-/* 1차 메뉴 공통 버튼 */
 .depth1-btn {
-  /* 여행 및 추천 메뉴에 적용되는 버튼 영역 */
 }
 
-/* 1차 메뉴 - 추천 */
 .depth1-rec {
-  /* position: relative; */ /* 하위 메뉴의 위치 기준점으로 사용 가능 */
+  /* position: relative; */
 }
 
-/* 1차 메뉴 - 테마 */
 .depth1-theme {
-  /* position: relative; */ /* 내부 요소의 위치 기준점으로 사용 가능 */
+  /* position: relative; */
 }
 
-/* 1차 메뉴 - 지역 */
 .depth1-area {
-  /* position: relative; */ /* 내부 요소의 위치 기준점으로 사용 가능 */
+  /* position: relative; */
 }
 
-/* 1차 메뉴 - 디지털관광주민증 */
 .add-type {
-  /* position: relative; */ /* 내부 요소의 위치 기준점으로 사용 가능 */
+  /* position: relative; */
 }
 
-/* 1차 메뉴 안에 있는 li의 a 요소 선택 */
+/* 1차 메뉴 안에 있는 li의 직계 자식 a 선택 */
 .depth1-wrap > li > a {
-  display: flex; /* 링크 안의 텍스트와 아이콘을 가로 방향으로 배치 (Figma: Auto layout / Horizontal) */
-  height: 100%; /* 부모 li의 높이 전체 사용 (Figma: Height / Fill container와 유사) */
-  align-items: center; /* 텍스트와 아이콘을 세로 방향 가운데 정렬 (Figma: Auto layout / Align items center) */
-  gap: var(--space-2) 2px; /* 텍스트와 아이콘 사이 간격 (Figma: Auto layout / Gap) */
-  padding: 0 var(--space-2) 0 10px; /* 위아래 여백은 0, 좌우 여백은 10px (Figma: Padding) */
-  font-size: var(--fs-lg); /* 메뉴 글자 크기 20px (Figma: Font size) */
-  font-weight: var(
-    --fw-semibold
-  ); /* 글자 굵기를 조금 두껍게 설정 (Figma: Font weight / Semi Bold) */
-  letter-spacing: var(
-    --ls-base
-  ); /* 글자 사이 간격을 조금 좁게 설정 (Figma: Letter spacing) */
-  line-height: 1; /* 줄 간격을 글자 크기에 맞게 설정 (Figma: Line height) */
+  display: flex; /* 링크 내부 요소를 Flex로 배치 (피그마: Auto layout) */
+  height: 100%; /* 부모 높이 전체 사용 (피그마: Fill container) */
+  align-items: center; /* 글자와 아이콘을 세로 가운데 정렬 (피그마: Align center) */
+  gap: 10px; /* 글자와 아이콘 사이 간격 (피그마: Auto layout - Gap) */
+  padding: 0 10px; /* 위아래 여백 0, 좌우 안쪽 여백 10px (피그마: Padding) */
+  font-size: var(--fs-lg); /* 메뉴 글자 크기 (피그마: Font size) */
+  font-weight: 600; /* 메뉴 글자 굵기 (피그마: Weight - Semi Bold에 해당) */
+  letter-spacing: -0.01em; /* 글자 사이 간격을 좁힘 (피그마: Letter spacing) */
+  line-height: 1; /* 글자 줄간격을 글자 크기 기준 1배로 설정 */
 }
 
-/* 2차 메뉴 전체 영역 */
+/* 2차 메뉴 영역 */
 .depth2-wrap {
-  /* display: none; */ /* 2차 메뉴를 화면에서 숨길 때 사용 (Figma: 직접 대응되는 개념 없음) */
-  position: absolute; /* 기준이 되는 부모 요소를 기준으로 위치 지정 (Figma: Absolute position과 유사하지만 기준 및 배치 방식은 다름) */
-  top: 100%; /* 부모 요소의 바로 아래에 배치 (Figma: Absolute position의 Y 위치와 유사) */
-  left: 0; /* 부모 요소의 왼쪽을 기준으로 정렬 (Figma: Absolute position의 X 위치와 유사) */
-  width: 100%; /* 부모 요소의 너비 전체 사용 (Figma: Width / Fill container와 유사) */
-  background-color: #b4adad; /* 2차 메뉴 영역 배경색 (Figma: Frame Fill) */
-  z-index: var(
-    --z-dropdown
-  ); /* 다른 요소보다 앞쪽에 표시 (Figma: 레이어 순서 / Bring to front와 유사) */
+  display: none; /* 기본 상태에서는 숨김 (피그마: 직접 대응하는 기능 없음) */
+  position: absolute; /* 부모 기준으로 자유롭게 위치 지정 (피그마: Absolute position과 유사) */
+  top: 100%; /* 기준이 되는 부모 요소의 아래쪽에 배치 */
+  left: 0; /* 기준이 되는 부모 요소의 왼쪽에 맞춤 */
+  width: 100%; /* 부모 영역의 가로 너비 전체 사용 (피그마: Fill container) */
+  background-color: #b4adad; /* 2차 메뉴 배경색 (피그마: Fill) */
+  z-index: 1; /* 다른 요소와 겹칠 때 앞뒤 순서 지정 (피그마: 레이어 순서와 유사) */
 }
 
-/* 헤더 우측 유틸리티 전체 영역 */
+/* 헤더 오른쪽 유틸리티 영역 */
 .header-util {
-  position: relative; /* 내부 요소의 absolute 위치 기준점 (Figma: Absolute position의 기준 프레임 역할과 유사하지만 동작 방식은 다름) */
-  display: flex; /* 내부 요소들을 가로 방향으로 배치 (Figma: Auto layout / Horizontal) */
-  height: 38px; /* 영역 높이 38px (Figma: Height) */
-  align-items: center; /* 내부 요소들을 세로 방향 가운데 정렬 (Figma: Auto layout / Align items center) */
-  gap: var(--space-3); /* 내부 요소 사이 간격 (Figma: Auto layout / Gap) */
+  position: relative; /* 자식 요소의 absolute 위치 기준점 설정 */
+  display: flex; /* 내부 요소 가로 배치 (피그마: Auto layout - Horizontal) */
+  height: 38px; /* 영역 높이 지정 (피그마: Height) */
+  align-items: center; /* 내부 요소 세로 가운데 정렬 (피그마: Align center) */
+  gap: 12px; /* 내부 요소 사이 간격 (피그마: Gap) */
 }
 
-/* 헤더 우측의 보조 메뉴 영역 */
 .util-sub {
-  position: relative; /* 내부 요소의 absolute 위치 기준점 (Figma: Absolute position의 기준 프레임 역할과 유사하지만 동작 방식은 다름) */
-  display: flex; /* 내부 요소들을 가로 방향으로 배치 (Figma: Auto layout / Horizontal) */
-  align-items: center; /* 내부 요소들을 세로 방향 가운데 정렬 (Figma: Auto layout / Align items center) */
-  gap: var(--space-1); /* 내부 요소 사이 간격 (Figma: Auto layout / Gap) */
-  height: 100%; /* 부모 요소의 높이 전체 사용 (Figma: Height / Fill container와 유사) */
+  position: relative; /* 자식 요소의 absolute 위치 기준점 설정 */
+  display: flex; /* 내부 요소 가로 배치 (피그마: Auto layout - Horizontal) */
+  align-items: center; /* 내부 요소 세로 가운데 정렬 (피그마: Align center) */
+  gap: 4px; /* 내부 요소 사이 간격 (피그마: Gap) */
+  height: 100%; /* 부모 높이 전체 사용 (피그마: Fill container) */
 }
 
-/* 언어 선택 전체 영역 */
+/* 언어 선택 영역 */
 .language-wrap {
-  position: relative; /* 언어 선택 목록의 위치 기준점 (Figma: Absolute position의 기준 프레임 역할과 유사하지만 동작 방식은 다름) */
-  background-color: blueviolet; /* 언어 선택 영역 확인용 배경색 (Figma: Frame Fill) */
-  height: 100%; /* 부모 요소의 높이 전체 사용 (Figma: Height / Fill container와 유사) */
+  position: relative; /* 언어 선택 목록의 위치 기준점 */
+  background-color: blueviolet; /* 영역 배경색 (피그마: Fill) */
+  height: 100%; /* 부모 높이 전체 사용 (피그마: Fill container) */
 }
 
-/* 언어 선택 영역 내부의 버튼 */
+/* 언어 선택 버튼 */
 .language-wrap > button {
-  display: flex; /* 버튼 내부의 아이콘과 텍스트를 가로 방향으로 배치 (Figma: Auto layout / Horizontal) */
-  align-items: center; /* 내부 요소들을 세로 방향 가운데 정렬 (Figma: Auto layout / Align items center) */
-  height: 100%; /* 부모 요소의 높이 전체 사용 (Figma: Height / Fill container와 유사) */
+  display: flex; /* 버튼 내부 요소 가로 배치 (피그마: Auto layout - Horizontal) */
+  align-items: center; /* 버튼 내부 요소 세로 가운데 정렬 (피그마: Align center) */
+  height: 100%; /* 부모 높이 전체 사용 (피그마: Fill container) */
 }
 
-/* 언어 선택 버튼을 눌렀을 때 나타나는 목록 */
+/* 언어 선택 목록 */
 .language-layer {
-  position: absolute; /* 부모 요소를 기준으로 위치 지정 (Figma: Absolute position과 유사하지만 기준 및 배치 방식은 다름) */
-  left: 0; /* 부모 요소의 왼쪽에 맞춰 정렬 (Figma: Absolute position의 X 위치와 유사) */
-  top: 38px; /* 부모 요소의 위쪽에서 38px 아래에 배치 (Figma: Absolute position의 Y 위치와 유사) */
-  background-color: var(
-    --color-white
-  ); /* 목록 배경색을 흰색으로 설정 (Figma: Frame Fill) */
+  display: none; /* 기본 상태에서 목록 숨김 */
+  position: absolute; /* 부모 기준으로 위치 지정 (피그마: Absolute position과 유사) */
+  left: 0; /* 부모의 왼쪽에 맞춤 */
+  top: 38px; /* 부모의 위쪽에서 38px 아래에 배치 */
+  background-color: var(--color-white); /* 목록 배경색 (피그마: Fill) */
 }
 
 /* ========================================
@@ -249,169 +215,285 @@ button:focus-visible {
    MAIN 스타일 시작
 ======================================== */
 
-/* 메인 콘텐츠 전체 영역 */
 .main {
-  width: 100%; /* 화면 너비 전체 사용 (Figma: Width / Fill container) */
-  background-color: wheat; /* 메인 영역 확인용 배경색 (Figma: Frame Fill) */
+  width: 100%; /* 화면 가로 너비 전체 사용 (피그마: Fill container) */
+  background-color: wheat;
 }
 
-/* 메인 히어로 스와이퍼 안의 슬라이드 */
+/* ========================================
+   HERO SECTION
+======================================== */
+
+/* 히어로 슬라이드 영역 */
 .sw-hero .swiper-slide {
-  position: relative; /* 슬라이드 내부 이미지나 요소의 위치 기준점 (Figma: Absolute position의 기준 프레임 역할과 유사하지만 동작 방식은 다름) */
-  width: 940px; /* 슬라이드 너비 940px (Figma: Width) */
-  height: 626px; /* 슬라이드 높이 626px (Figma: Height) */
+  position: relative; /* 내부 텍스트 영역의 absolute 위치 기준점 */
+  width: 940px; /* 슬라이드 가로 너비 (피그마: Width) */
+  height: 626px; /* 슬라이드 높이 (피그마: Height) */
   border-radius: var(
     --radius-lg
-  ); /* 모서리를 12px만큼 둥글게 설정 (Figma: Corner radius) */
-  overflow: hidden; /* 영역을 벗어나는 이미지나 콘텐츠 숨김 (Figma: Clip content) */
+  ); /* 모서리 둥글게 설정 (피그마: Corner radius) */
+  overflow: hidden; /* 영역을 벗어나는 이미지나 콘텐츠 숨김 (피그마: Clip content) */
 }
 
-/* 히어로 이미지 전체 영역 */
+/* 히어로 이미지 바깥 영역 */
 .sw-hero .hero-img {
-  display: block; /* 이미지 주변에 생길 수 있는 불필요한 공백 제거 (Figma: 직접 대응되는 개념 없음) */
-  width: 100%; /* 부모 요소의 너비 전체 사용 (Figma: Width / Fill container) */
-  height: 100%; /* 부모 요소의 높이 전체 사용 (Figma: Height / Fill container) */
+  display: block; /* 이미지 아래에 생기는 불필요한 여백 제거 */
+  width: 100%; /* 부모 너비 전체 사용 (피그마: Fill container) */
+  height: 100%; /* 부모 높이 전체 사용 (피그마: Fill container) */
 }
 
-/* 히어로 이미지 영역 안의 실제 img 요소 */
+/* 히어로 영역 내부 실제 이미지 */
 .sw-hero .hero-img img {
-  width: 100%; /* 부모 요소의 너비 전체 사용 (Figma: Width / Fill container) */
-  height: 100%; /* 부모 요소의 높이 전체 사용 (Figma: Height / Fill container) */
-  object-fit: cover; /* 이미지 비율을 유지하면서 영역을 빈틈없이 채움 (Figma: 이미지 Fill과 유사) */
+  width: 100%; /* 이미지 가로 너비 전체 사용 (피그마: Fill container) */
+  height: 100%; /* 이미지 세로 높이 전체 사용 (피그마: Fill container) */
+  object-fit: cover; /* 비율을 유지하면서 영역을 가득 채우고 넘치는 부분 자르기 (피그마: Fill 이미지와 유사) */
 }
 
-/* 히어로 슬라이드 안의 링크 영역 */
+/* 히어로 슬라이드 위에 표시되는 텍스트 영역 */
 .sw-hero .swiper-slide a {
-  position: absolute; /* 부모 슬라이드를 기준으로 위치 지정 (Figma: Absolute position과 유사하지만 기준 및 배치 방식은 다름) */
-  left: var(
-    --space-12
-  ); /* 슬라이드 왼쪽에서 48px 떨어진 위치 (Figma: X 위치 / Left) */
-  bottom: var(
-    --space-12
-  ); /* 슬라이드 아래쪽에서 48px 떨어진 위치 (Figma: Y 위치 / Bottom 기준 배치와 유사) */
-  width: calc(
-    100% - 96px
-  ); /* 좌우 48px씩 제외한 전체 너비 사용 (Figma: 부모 너비에서 좌우 Padding을 제외한 영역과 유사) */
+  position: absolute; /* 슬라이드를 기준으로 자유롭게 위치 지정 (피그마: Absolute position과 유사) */
+  left: var(--space-12); /* 왼쪽에서 지정된 간격만큼 이동 */
+  bottom: var(--space-12); /* 아래쪽에서 지정된 간격만큼 이동 */
+  width: 630px; /* 텍스트 영역 너비 (피그마: Width) */
+  /* z-index: 5; */ /* 겹치는 요소 중 앞쪽에 표시 */
 }
 
-/* 히어로 슬라이드의 제목 */
+/* 히어로 메인 제목 */
 .sw-hero .swiper-slide a strong {
-  display: block; /* 제목을 독립된 한 줄 영역으로 배치 (Figma: Auto layout의 독립된 프레임 구성과 유사하지만 동일하지 않음) */
-  font-size: var(--fs-display); /* 제목 글자 크기 40px (Figma: Font size) */
+  display: block; /* 제목을 한 줄 전체 영역으로 표시 */
+  font-size: var(--fs-display); /* 큰 제목 글자 크기 (피그마: Font size) */
   font-weight: var(
     --fw-extrabold
-  ); /* 제목 글자를 매우 굵게 설정 (Figma: Font weight / Extra Bold) */
+  ); /* 매우 굵은 글자 (피그마: Weight - Extra Bold) */
   line-height: var(
     --lh-tight
-  ); /* 제목의 줄 간격을 글자 크기의 1.2배로 설정 (Figma: Line height) */
-  color: var(
-    --color-white
-  ); /* 제목 글자 색상을 흰색으로 설정 (Figma: Text color / Fill) */
-  word-break: keep-all; /* 한글을 단어 단위로 줄바꿈 (Figma: 직접 대응되는 개념 없음) */
-  /* margin-top: var(--space-12); ← 일단 제거 (필요하면 em/view 쪽 간격으로 조정) */
+  ); /* 제목 줄간격을 좁게 설정 (피그마: Line height) */
+  color: var(--color-white); /* 글자색 흰색 (피그마: Text color / Fill) */
+  margin-top: 40px; /* 위쪽 바깥 여백 (피그마: Margin 또는 Auto layout 간격과 유사) */
 }
 
-/* 히어로 슬라이드의 부제목 */
+/* 히어로 부제목 */
 .sw-hero .swiper-slide a em {
-  display: block; /* 부제목을 독립된 줄 영역으로 배치 (Figma: 독립된 텍스트 영역 구성과 유사) */
-  font-size: var(--fs-lg); /* 부제목 글자 크기 20px (Figma: Font size) */
-  font-style: normal; /* em 태그의 기본 기울임꼴 제거 (Figma: Font style / Normal) */
-  color: var(
-    --color-white-75
-  ); /* 흰색에 75% 불투명도 적용 (Figma: Fill opacity / 75%) */
-  padding-top: 9px; /* 부제목 위쪽에 9px 안쪽 여백 추가 (Figma: Padding top과 유사하지만 실제 텍스트 간격과는 구분 필요) */
+  display: block; /* 부제목을 한 줄 전체 영역으로 표시 */
+  font-size: var(--fs-lg); /* 부제목 글자 크기 (피그마: Font size) */
+  font-style: normal; /* 기울임 글자 기본 스타일 제거 */
+  color: var(--color-white-75); /* 투명도가 적용된 흰색 계열 글자색 */
+  padding-top: 9px; /* 위쪽 안쪽 여백 (피그마: Padding) */
 }
 
-/* 히어로 슬라이드의 자세히 보기 버튼 */
+/* 자세히 보기 버튼 */
 .sw-hero .swiper-slide a .view {
-  display: inline-flex; /* 내부 요소를 가로 방향으로 배치하면서 내용만큼 너비 차지 (Figma: Auto layout / Horizontal 및 Hug contents와 유사) */
-  /* border: 1px solid #fff; */
-  align-items: center; /* 텍스트와 아이콘을 세로 방향 가운데 정렬 (Figma: Auto layout / Align items center) */
-  gap: var(
-    --space-1
-  ); /* 텍스트와 아이콘 사이 간격 (Figma: Auto layout / Gap) */
-  height: 32px; /* 버튼 높이 32px (Figma: Height) */
-  padding: 0 var(--space-4); /* 위아래 여백은 0, 좌우 여백은 16px (Figma: Padding) */
-  margin-top: 31px; /* 위쪽 요소와 버튼 사이 간격 (Figma: 요소 간 간격과 유사하지만 CSS에서는 바깥 여백으로 처리) */
-  font-size: var(--fs-sm); /* 버튼 글자 크기 14px (Figma: Font size) */
-  color: var(
-    --color-white
-  ); /* 버튼 글자와 currentColor를 사용하는 SVG 색상을 흰색으로 설정 (Figma: Text color / Fill) */
-  border: 1px solid var(--color-white-50); /* 흰색 테두리에 50% 불투명도 적용 (Figma: Stroke / 1px / 50% opacity) */
+  display: inline-flex; /* 내용 크기에 맞춰 배치하면서 Flex 적용 (피그마: Auto layout과 유사) */
+  /* width: fit-content; */ /* 콘텐츠 크기에 맞게 너비 자동 설정 */
+  align-items: center; /* 버튼 내부 요소 세로 가운데 정렬 (피그마: Align center) */
+  gap: 3px; /* 버튼 안의 글자와 아이콘 사이 간격 (피그마: Gap) */
+  height: 32px; /* 버튼 높이 (피그마: Height) */
+  padding: 0 16px; /* 좌우 안쪽 여백 (피그마: Padding) */
+  font-size: var(--fs-sm); /* 버튼 글자 크기 (피그마: Font size) */
+  color: var(--color-white); /* 버튼 글자색 흰색 */
+  border: 1px solid var(--color-white-50); /* 반투명 흰색 테두리 (피그마: Stroke) */
   border-radius: var(
     --radius-sm
-  ); /* 버튼 모서리를 2px만큼 둥글게 설정 (Figma: Corner radius) */
-
-  /* width: fit-content; */
+  ); /* 버튼 모서리 둥글게 설정 (피그마: Corner radius) */
+  margin-top: 31px; /* 버튼 위쪽 바깥 여백 (피그마: Auto layout 간격과 유사) */
 }
 
-/* 자세히 보기 버튼 안의 화살표 아이콘 영역 */
+/* 자세히 보기 버튼 내부 아이콘 영역 */
 .sw-hero .swiper-slide a .view .rt {
-  width: var(--icon-sm); /* 아이콘 너비 16px (Figma: Width) */
-  height: var(--icon-sm); /* 아이콘 높이 16px (Figma: Height) */
+  width: var(--icon-sm); /* 아이콘 가로 크기 (피그마: Width) */
+  height: var(--icon-sm); /* 아이콘 세로 크기 (피그마: Height) */
   transform: rotate(
     -90deg
-  ); /* 아이콘을 시계 반대 방향으로 90도 회전 (Figma: Rotation / -90°) */
+  ); /* 아이콘을 반시계 방향으로 90도 회전 (피그마: Rotation) */
 }
 
-/* 자세히 보기 버튼 안의 SVG 전체 크기 */
+/* 아이콘 내부 SVG 크기 */
 .sw-hero .swiper-slide a .view svg {
-  width: 100%; /* 부모 요소의 너비 전체 사용 (Figma: Width / Fill container) */
-  height: 100%; /* 부모 요소의 높이 전체 사용 (Figma: Height / Fill container) */
+  width: 100%; /* 부모 너비 전체 사용 */
+  height: 100%; /* 부모 높이 전체 사용 */
 }
 
-/* 자세히 보기 버튼 안의 SVG 선 스타일 */
+/* SVG 내부 선 모양 설정 */
 .sw-hero .swiper-slide a .view svg path {
-  stroke: currentColor; /* SVG 선 색상을 현재 요소의 글자 색상과 동일하게 설정 (Figma: Stroke color) */
-  stroke-width: var(
-    --stroke-icon-sm
-  ); /* SVG 선 두께를 2px로 설정 (Figma: Stroke weight / 2px) */
+  stroke: currentColor; /* 현재 글자색을 선 색상으로 사용 */
+  stroke-width: 2px; /* 선 굵기 설정 */
 }
 
-/* 히어로 슬라이드 이전/다음 버튼 공통 스타일 */
+/* 슬라이드 좌우 이동 버튼 */
 .sw-hero .nav-btn .btn-pg-icon-full-lg {
-  width: var(--btn-icon-lg); /* 버튼 너비 56px (Figma: Width) */
-  height: var(--btn-icon-lg); /* 버튼 높이 56px (Figma: Height) */
+  width: var(--btn-icon-lg); /* 버튼 가로 크기 */
+  height: var(--btn-icon-lg); /* 버튼 세로 크기 */
   border-radius: var(
     --radius-full
-  ); /* 모서리를 크게 둥글게 만들어 원형으로 설정 (Figma: Corner radius) */
-  background-color: var(
-    --color-black-40
-  ); /* 검은색 배경에 40% 불투명도 적용 (Figma: Fill / 40% opacity) */
-  display: flex; /* 내부 아이콘을 정렬하기 위한 Flex 레이아웃 사용 (Figma: Auto layout) */
-  align-items: center; /* 내부 아이콘을 세로 방향 가운데 정렬 (Figma: Auto layout / Align items center) */
-  justify-content: center; /* 내부 아이콘을 가로 방향 가운데 정렬 (Figma: Auto layout / Justify content center) */
-  color: var(
-    --color-white
-  ); /* 버튼 내부 글자 및 currentColor 아이콘을 흰색으로 설정 (Figma: Text color / Fill) */
+  ); /* 완전한 원형으로 설정 (피그마: Corner radius - 최대값) */
+  background-color: var(--color-black-40); /* 반투명 검정 배경 (피그마: Fill) */
+  display: flex; /* 내부 아이콘 Flex 배치 (피그마: Auto layout) */
+  align-items: center; /* 아이콘 세로 가운데 정렬 (피그마: Align center) */
+  justify-content: center; /* 아이콘 가로 가운데 정렬 (피그마: Align center) */
+  color: var(--color-white); /* 아이콘 색상 흰색 */
 }
 
-/* 이전/다음 버튼 안의 화살표 아이콘 영역 */
+/* 좌우 이동 버튼 안의 화살표 아이콘 */
 .sw-hero .nav-btn .btn-pg-icon-full-lg .icon-pg-arwright-lg {
-  width: var(--icon-md); /* 아이콘 너비 24px (Figma: Width) */
-
-  height: var(--icon-md); /* 아이콘 높이 24px (Figma: Height) */
+  width: var(--icon-md); /* 아이콘 가로 크기 */
+  height: var(--icon-md); /* 아이콘 세로 크기 */
 }
 
-/* 이전 버튼의 화살표 방향 변경 */
+/* 화살표 아이콘 방향 조정 */
 .sw-hero .nav-btn .btn-pg-icon-full-lg .icon-pg-arwright-lg .lt {
-  transform: rotate(
-    -180deg
-  ); /* 화살표 방향을 반대로 회전 (Figma: Rotation / -180°) */
+  transform: rotate(-180deg); /* 화살표 방향을 180도 회전 */
 }
 
-/* 이전/다음 버튼 안의 SVG 전체 크기 */
+/* 화살표 SVG 크기 */
 .sw-hero .nav-btn .btn-pg-icon-full-lg .icon-pg-arwright-lg svg {
-  width: 100%; /* 부모 요소의 너비 전체 사용 (Figma: Width / Fill container) */
-  height: 100%; /* 부모 요소의 높이 전체 사용 (Figma: Height / Fill container) */
+  width: 100%; /* 부모 너비 전체 사용 */
+  height: 100%; /* 부모 높이 전체 사용 */
 }
 
-/* 이전/다음 버튼 안의 SVG 선 스타일 */
+/* 화살표 SVG 선 스타일 */
 .sw-hero .nav-btn .btn-pg-icon-full-lg .icon-pg-arwright-lg svg path {
-  stroke: currentColor; /* SVG 선 색상을 현재 요소의 글자 색상과 동일하게 설정 (Figma: Stroke color) */
-  stroke-width: var(
-    --stroke-slide-nav
-  ); /* SVG 선 두께를 2.5px로 설정 (Figma: Stroke weight / 2.5px) */
+  stroke: currentColor; /* 현재 글자색을 선 색상으로 사용 */
+  stroke-width: 2.5px; /* 선 굵기 설정 */
+}
+
+/* 슬라이드 페이지 표시 영역 */
+.sw-hero .page-btn {
+}
+
+/* 슬라이드 현재 번호와 전체 번호 */
+.sw-hero .page-btn .swiper-pagination {
+  display: flex; /* 페이지 번호를 가로 방향으로 배치 (피그마: Auto layout - Horizontal) */
+  gap: 8px; /* 번호 사이 간격 (피그마: Gap) */
+  align-items: center; /* 세로 가운데 정렬 (피그마: Align center) */
+  height: 16px; /* 영역 높이 */
+  font-size: 18px; /* 페이지 번호 글자 크기 */
+  line-height: 16px; /* 페이지 번호 줄간격 */
+  color: var(--color-white-50); /* 기본 페이지 번호 색상 */
+}
+
+/* 현재 표시 중인 슬라이드 번호 */
+.sw-hero .page-btn .swiper-pagination .swiper-pagination-current {
+  color: var(--color-white); /* 현재 번호는 흰색으로 강조 */
+}
+
+/* 전체 슬라이드 개수 */
+.sw-hero .page-btn .swiper-pagination .swiper-pagination-total {
+}
+
+/* 슬라이드 자동 재생 버튼 영역 */
+.sw-hero .page-btn .rolling {
+}
+
+/* 재생 및 정지 아이콘 영역 */
+.sw-hero .page-btn .rolling .icon-pg-play {
+  color: var(--color-white); /* 아이콘 색상 흰색 */
+}
+
+/* 정지 아이콘 영역 */
+.sw-hero .page-btn .rolling .icon-pg-play .stop {
+  display: block; /* 정지 아이콘을 블록 요소로 표시 */
+  width: 16px; /* 아이콘 가로 크기 */
+  height: 16px; /* 아이콘 세로 크기 */
+}
+
+/* 정지 아이콘 SVG */
+.sw-hero .page-btn .rolling .icon-pg-play .stop svg {
+  width: 100%; /* 부모 너비 전체 사용 */
+  height: 100%; /* 부모 높이 전체 사용 */
+}
+
+/* 정지 아이콘 SVG 내부 사각형 */
+.sw-hero .page-btn .rolling .icon-pg-play .stop svg rect {
+  fill: currentColor; /* 현재 지정된 색상으로 채우기 */
+}
+
+/* 재생 아이콘 영역 */
+.sw-hero .page-btn .rolling .icon-pg-play .play {
+  display: block; /* 재생 아이콘 표시 */
+  /* display: none; */ /* 재생 아이콘을 숨길 때 사용하는 코드 */
+  width: 16px; /* 아이콘 가로 크기 */
+  height: 16px; /* 아이콘 세로 크기 */
+}
+
+/* 재생 아이콘 SVG */
+.sw-hero .page-btn .rolling .icon-pg-play .play svg {
+  width: 100%; /* 부모 너비 전체 사용 */
+  height: 100%; /* 부모 높이 전체 사용 */
+}
+
+/* 재생 아이콘 SVG 내부 경로 */
+.sw-hero .page-btn .rolling .icon-pg-play .play svg path {
+  fill: currentColor; /* 현재 지정된 색상으로 아이콘 채우기 */
+}
+
+/* ========================================
+   QUICK NAV SECTION
+======================================== */
+
+/* 메인 바로가기 메뉴 전체 영역 */
+.main-quick-nav {
+  width: 100%; /* 가로 너비 전체 사용 */
+  max-width: var(--layout-max); /* 최대 너비 제한 (피그마: Max width와 유사) */
+  margin: 62px auto 0; /* 위쪽 여백 62px, 좌우 자동으로 중앙 배치 */
+  padding-bottom: 72px; /* 아래쪽 안쪽 여백 (피그마: Padding bottom) */
+}
+
+/* 바로가기 메뉴 제목 */
+.main-quick-nav h3 {
+  font-size: 26px; /* 제목 글자 크기 (피그마: Font size) */
+  letter-spacing: var(--ls-base); /* 글자 사이 간격 (피그마: Letter spacing) */
+  line-height: var(--lh-title); /* 제목 줄간격 (피그마: Line height) */
+}
+
+/* 제목 안에서 강조되는 글자 */
+.main-quick-nav h3 strong {
+  font-weight: var(
+    --fw-extrabold
+  ); /* 글자 굵게 강조 (피그마: Weight - Extra Bold) */
+}
+
+/* 바로가기 메뉴 슬라이드 영역 */
+.sw-quick {
+  padding-top: var(--space-8); /* 위쪽 안쪽 여백 (피그마: Padding top) */
+}
+.sw-quick .swiper-wrapper {
+  display: flex;
+  align-items: center;
+}
+.sw-quick .swiper-slide {
+  width: 122px;
+}
+.sw-quick .swiper-slide a {
+  display: flex;
+  flex-direction: column; /* 자식 요소를 세로 방향으로 위에서 아래로 배치 (피그마: Auto layout - Vertical) */
+  align-items: center;
+}
+.sw-quick .swiper-slide a strong {
+  display: block;
+  padding-top: var(--space-4);
+  font-size: 18px;
+  font-weight: var(--fw-semibold);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.05em;
+}
+
+.sw-quick .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
+  border-radius: 36px;
+  box-shadow: 0 0 6px rgba(26, 26, 26, 0.15);
+  transition: border-radius 0.3s ease-in-out;
+}
+.sw-quick .swiper-slide a .icon img {
+  width: 60px;
+  height: auto;
+  /* object-fit: contain; */
+}
+.sw-quick .swiper-slide a:hover .icon {
+  border-radius: var(--radius-full);
 }
 
 /* ========================================
@@ -422,10 +504,9 @@ button:focus-visible {
    FOOTER 스타일 시작
 ======================================== */
 
-/* 푸터 전체 영역 */
 .footer {
-  width: 100%; /* 화면 너비 전체 사용 (Figma: Width / Fill container) */
-  background-color: violet; /* 푸터 영역 확인용 배경색 (Figma: Frame Fill) */
+  width: 100%; /* 화면 가로 너비 전체 사용 */
+  background-color: violet; /* 푸터 배경색 (피그마: Fill) */
 }
 
 /* ========================================
