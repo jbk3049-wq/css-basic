@@ -28,7 +28,7 @@ body {
   line-height: var(--lh-base); /* 기본 줄 간격 지정 */
   letter-spacing: var(--ls-base); /* 글자 사이 간격 지정 */
   background-color: var(--color-white); /* 페이지 전체 배경색 지정 */
-  word-break: keep-all;
+  word-break: keep-all; /* 글자 편집 */
 }
 
 ul,
